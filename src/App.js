@@ -1,24 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
-  const [isMobileView, setIsMobileView] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 768);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
-    <div className={`app ${isMobileView ? "mobile" : "desktop"}`}>
+    <div
+      className=""
+      style={{
+        backgroundColor: "#808080",
+        height: "100vh",
+        "@media (max-width: 768px)": {
+          backgroundColor: "white",
+        },
+      }}
+    >
       <p className="flex items-center justify-center text-[32px] mb-5 text-white">
         Mock Checkout Page
       </p>
